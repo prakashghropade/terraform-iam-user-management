@@ -1,5 +1,5 @@
-data "aws_caller_indetity" "name" {}
+data "aws_caller_identity" "name" {}
 
  output "account_id" {
-    value = data.aws_caller_indetity.name
+    value = data.aws_caller_identity.name
  }
