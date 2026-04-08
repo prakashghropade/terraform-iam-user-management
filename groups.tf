@@ -42,6 +42,6 @@ resource "aws_iam_group_membership" "manager_members" {
     group = aws_iam_group.manager.name
 
     users = [
-        for user in aws_iam_user.users : user.name if contains(keys(user.tags), "JobTitle" && can(regex("Manager | CEO", user.tags.JobTitle)))
+        for user in aws_iam_user.users : user.name if contains(keys(user.tags, "JobTitle") && can(regex("Manager | CEO", user.tags.JobTitle)))
     ]
 }
